@@ -43,6 +43,13 @@ spec:
                 port:
                   number: 9094
 
+          - path: /search-service
+            pathType: Prefix
+            backend:
+              service:
+                name: search-service
+                port:
+                  number: 9095
 
           - path: /user
             pathType: Prefix

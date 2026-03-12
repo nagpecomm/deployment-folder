@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: searchserviceapp
+  labels:
+    app: searchserviceapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: searchserviceapp
+  template:
+    metadata:
+      labels:
+        app: searchserviceapp
+    spec:
+      containers:
+        - name: searchserviceapp
+          image: maheshtambelab/search-service:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 9095
+          env:
+            - name: SPRING_DATASOURCE_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: secret
+                  key: mysql-username
+            - name: SPRING_DATASOURCE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: secret
+                  key: mysql-password
+            - name: SPRING_DATASOURCE_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: configmap
+                  key: restaurantdb_url
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: search-service
+spec:
+  ports:
+    - protocol: TCP
+      port: 9095
+      targetPort: 9095
+  selector:
+    app: searchserviceapp
+ 
