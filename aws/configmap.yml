@@ -3,9 +3,9 @@ kind: ConfigMap
 metadata:
   name: configmap
 data:
-  restaurantdb_url: jdbc:mysql://mysql-db-instance.cdg8004e4ukm.eu-west-2.rds.amazonaws.com:3306/restaurantdb
-  foodcataloguedb_url: jdbc:mysql://mysql-db-instance.cdg8004e4ukm.eu-west-2.rds.amazonaws.com:3306/foodcataloguedb
-  userdb_url: jdbc:mysql://mysql-db-instance.cdg8004e4ukm.eu-west-2.rds.amazonaws.com:3306/userdb
+  restaurantdb_url: jdbc:mysql://aws-mysql-db-instance.c5ceyeqimyr3.ap-south-1.rds.amazonaws.com:3306/restaurantdb
+  foodcataloguedb_url: jdbc:mysql://aws-mysql-db-instance.c5ceyeqimyr3.ap-south-1.rds.amazonaws.com:3306/foodcataloguedb
+  userdb_url: jdbc:mysql://aws-mysql-db-instance.c5ceyeqimyr3.ap-south-1.rds.amazonaws.com:3306/userdb
   orderdb_url: mongodb+srv://admin:codedecode@atlas-cluster.26ohdzb.mongodb.net/?retryWrites=true&w=majority
   eureka_service_address: http://eureka-0.eureka-service:8761/eureka
 
@@ -18,4 +18,6 @@ data:
   # userdb_url: jdbc:mysql://mysql-service:3306/userdb
   # foodcataloguedb: foodcataloguedb
   # userdb: userdb
+
+
   
