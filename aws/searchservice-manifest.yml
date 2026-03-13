@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: searchserviceapp
-          image: maheshtambelab/search-service:latest
+          image: maheshtambelab/search-service:6
           imagePullPolicy: Always
           ports:
             - containerPort: 9095
